@@ -1,0 +1,19 @@
+{
+  "name": "sales-server",
+  "version": "1.0.0",
+  "description": "server of sales app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "sales-server"
+  ],
+  "author": "puji w prayitno",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.3",
+    "mysql": "^2.15.0",
+    "promise-mysql": "^3.2.1"
+  }
+}
