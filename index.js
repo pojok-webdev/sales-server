@@ -4,6 +4,7 @@ con = require('./js/connections.js'),
 query = require('./js/queries.js');
 
 app.get('/visits',function(req,res){
+    res.header("Access-Control-Allow-Origin", "*");
     console.log("Visits invoked");
     con.getdata(query.visits,function(result){
         console.log('Result', result);
