@@ -1,19 +1,19 @@
 var nodemailer = require('nodemailer'),
 config = require("./configs.js");
 transporter = nodemailer.createTransport({
-    host:'smtp.padi.net.id',
+    host:config.mail.host,
     secure:false,
     auth:{
-        user:config.mail.user,
-        pass:config.mail.pass
+        user:config.mail.auth.user,
+        pass:config.mail.auth.pass
     }
 }),
 mailOptions = {
-    from:'puji@padi.net.id',
-    to:'628813272107@sms.padinet.com,6282231384002@sms.padinet.com',
-    cc:'puji@padi.net.id',
-    subject:'otp',
-    text:'Sending otp by nodejs'
+    from:config.otp.from,
+    to:config.otp.to,
+    cc:config.otp.cc,
+    subject:config.otp.subject,
+    text:config.otp.text
 };
 sendmail = function(msg){
     mailOptions.text = msg;
