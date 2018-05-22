@@ -15,7 +15,7 @@ mailOptions = {
     subject:config.otp.subject,
     text:config.otp.text
 };
-sendmail = function(msg){
+sendmail = function(msg,callback){
     mailOptions.text = msg;
     process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
     transporter.sendMail(mailOptions,function(err,res){
@@ -25,6 +25,7 @@ sendmail = function(msg){
             console.log('Mail sent',res);
         }
     });
+    callback(msg);
 }
 module.exports = {
     sendmail: sendmail

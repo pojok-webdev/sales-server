@@ -15,6 +15,8 @@ app.get('/visits',function(req,res){
 app.get('/askotp/:msg',function(req,res){
     res.header("Access-Control-Allow-Origin","*");
     var msg = req.params.msg
-    mailer.sendmail(msg);
+    mailer.sendmail(msg,function(content){
+        res.send("Email telah terkirim : "+content);
+    });
 });
 app.listen(process.env.PORT || 1946);
