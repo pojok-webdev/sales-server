@@ -33,8 +33,11 @@ app.post('/reqotp',function(req,res){
     console.log("clientname",req.body.clientname);
     console.log("address",req.body.address);
     console.log("phone",req.body.phone);
-    mailer.sendmail(clientname,function(content){
-        res.send("Email telah terkirim : "+content);
+    con.getdata(query.saveRequest(clientname,address,phone,'puji'),function(result){
+        console.log("Save Result",result);
+        mailer.sendmail(clientname,function(content){
+            res.send("Email telah terkirim : "+content);
+        });
     });
 });
 app.get('/checkotp/:otp',function(req,res){

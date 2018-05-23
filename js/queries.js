@@ -5,8 +5,16 @@ var visits = 'select createuser sales,clientname,address from visits ',
     confirmOtp = (otp)=>{
         return 'update visits set otpconfirmed="1" where otp="'+otp+'"'
     }
+    saveRequest = (clientname,address,phone,createuser)=>{
+        sql = 'insert into visits ';
+        sql+= '(clientname,address,phone,createuser)';
+        sql+= 'values ';
+        sql+= '("'+clientname+'","'+address+'","'+phone+'","'+createuser+'")';
+        return sql;
+    }
 module.exports = {
     visits: visits,
     checkOtp: checkOtp,
-    confirmOtp: confirmOtp
+    confirmOtp: confirmOtp,
+    saveRequest:saveRequest
 }
