@@ -3,7 +3,8 @@ app = express(),
 con = require('./js/connections.js'),
 query = require('./js/queries.js'),
 bodyParser = require('body-parser'),
-mailer = require('./js/mailer.js');
+mailer = require('./js/mailer.js'),
+otp = require('../js/otp.js');
 app.use(function(req,res,next){
     res.header("Access-Control-Allow-Origin","*");
     res.header("Access-Control-Allow-Headers","Origin, X-Requested-With, Content-Type, Accept");
@@ -33,7 +34,7 @@ app.post('/reqotp',function(req,res){
     console.log("clientname",req.body.clientname);
     console.log("address",req.body.address);
     console.log("phone",req.body.phone);
-    con.getdata(query.saveRequest(clientname,address,phone,'puji'),function(result){
+    con.getdata(query.saveRequest(clientname,address,phone,otp.get,'puji'),function(result){
         console.log("Save Result",result);
         mailer.sendmail(clientname,function(content){
             res.send("Email telah terkirim : "+content);
