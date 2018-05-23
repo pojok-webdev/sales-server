@@ -2,8 +2,13 @@ var express = require('express'),
 app = express(),
 con = require('./js/connections.js'),
 query = require('./js/queries.js'),
+bodyParser = require('body-parser'),
 mailer = require('./js/mailer.js');
-
+app.use(function(req,res,next){
+    res.header("Access-Control-Allow-Origin","*");
+    res.header("Access-Control-Allow-Headers","Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
 app.get('/visits',function(req,res){
     res.header("Access-Control-Allow-Origin", "*");
     console.log("Visits invoked");
@@ -16,6 +21,19 @@ app.get('/askotp/:msg',function(req,res){
     res.header("Access-Control-Allow-Origin","*");
     var msg = req.params.msg
     mailer.sendmail(msg,function(content){
+        res.send("Email telah terkirim : "+content);
+    });
+});
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended:true}));
+app.post('/reqotp',function(req,res){
+    clientname = req.body.clientname;
+    address = req.body.address;
+    phone = req.body.phone;
+    console.log("clientname",req.body.clientname);
+    console.log("address",req.body.address);
+    console.log("phone",req.body.phone);
+    mailer.sendmail(clientname,function(content){
         res.send("Email telah terkirim : "+content);
     });
 });
