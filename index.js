@@ -34,7 +34,7 @@ app.post('/reqotp',function(req,res){
     console.log("clientname",req.body.clientname);
     console.log("address",req.body.address);
     console.log("phone",req.body.phone);
-    con.getdata(query.saveRequest(clientname,address,phone,otp.get,'puji'),function(result){
+    con.getdata(query.saveRequest(clientname,address,phone,otp.get(),'puji'),function(result){
         console.log("Save Result",result);
         mailer.sendmail(clientname,function(content){
             res.send("Email telah terkirim : "+content);
