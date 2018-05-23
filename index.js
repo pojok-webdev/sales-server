@@ -29,7 +29,9 @@ app.get('/checkotp/:otp',function(req,res){
 app.get('/confirmotp/:otp',function(req,res){
     res.header("Access-Control-Allow-Origin","*");
     var otp = req.params.otp;
+console.log("Receive OTP",otp);
     con.getdata(query.confirmOtp(otp),function(result){
+console.log("Query invoked",query.confirmOtp(otp));
         res.send(result);
     })
 })
