@@ -3,7 +3,7 @@ var visits = 'select createuser sales,clientname,address from visits ',
         return 'select * from visits where otp="'+otp+'"'
     };
     confirmOtp = (otp)=>{
-        return 'update visits set otpconfirmed="1" where otp="'+otp+'"'
+        return 'update visits set otpconfirmed="1" where otp="'+otp+'" and otpconfirmed="0" '
     }
     saveRequest = (clientname,address,phone,otp,createuser)=>{
         sql = 'insert into visits ';
