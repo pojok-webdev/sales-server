@@ -4,7 +4,7 @@ con = require('./js/connections.js'),
 query = require('./js/queries.js'),
 bodyParser = require('body-parser'),
 mailer = require('./js/mailer.js'),
-otp = require('../js/otp.js');
+otp = require('./js/otp.js');
 app.use(function(req,res,next){
     res.header("Access-Control-Allow-Origin","*");
     res.header("Access-Control-Allow-Headers","Origin, X-Requested-With, Content-Type, Accept");
