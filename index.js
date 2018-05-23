@@ -31,13 +31,11 @@ app.post('/reqotp',function(req,res){
     clientname = req.body.clientname;
     address = req.body.address;
     phone = req.body.phone;
-    console.log("clientname",req.body.clientname);
-    console.log("address",req.body.address);
-    console.log("phone",req.body.phone);
-    con.getdata(query.saveRequest(clientname,address,phone,otp.get(),'puji'),function(result){
+    _otp = otp.get();
+    con.getdata(query.saveRequest(clientname,address,phone,_otp,'puji'),function(result){
         console.log("Save Result",result);
         mailer.sendmail(clientname,function(content){
-            res.send("Email telah terkirim : "+content);
+            res.send("OTP PadiNET : "+_otp);
         });
     });
 });
