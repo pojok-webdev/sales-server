@@ -32,7 +32,7 @@ app.post('/reqotp',function(req,res){
     address = req.body.address;
     phone = req.body.phone;
     _otp = otp.get();
-    con.getdata(query.saveRequest(clientname,address,phone,_otp,'puji'),function(result){
+    con.getdata(query.saveRequest(clientname,address,phone,latitude,logitude,_otp,'puji'),function(result){
         console.log("Save Result",result);
         msg = "OTP PadiNET : "+_otp
         mailer.sendmail(msg,function(content){
