@@ -31,6 +31,8 @@ app.post('/reqotp',function(req,res){
     clientname = req.body.clientname;
     address = req.body.address;
     phone = req.body.phone;
+    latitude = req.body.latitude;
+    longitude = req.body.longitude;
     _otp = otp.get();
     con.getdata(query.saveRequest(clientname,address,phone,latitude,logitude,_otp,'puji'),function(result){
         console.log("Save Result",result);
