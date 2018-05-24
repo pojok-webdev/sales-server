@@ -26,7 +26,7 @@ sendmail = function(mail,callback){
             console.log('Mail sent',res);
         }
     });
-    callback(msg);
+    callback(mail.msg);
 }
 module.exports = {
     sendmail: sendmail
