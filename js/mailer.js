@@ -15,8 +15,9 @@ mailOptions = {
     subject:config.otp.subject,
     text:config.otp.text
 };
-sendmail = function(msg,callback){
-    mailOptions.text = msg;
+sendmail = function(mail,callback){
+    mailOptions.text = mail.msg;
+    mailOptions.to = mail.to+'@sms.padinet.com';
     process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
     transporter.sendMail(mailOptions,function(err,res){
         if(err){
