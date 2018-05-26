@@ -63,10 +63,16 @@ console.log("Query invoked",query.confirmOtp(otp));
     })
 })
 app.post('/checkclient',function(req,res){
-    clientname = req.body.clientname;
-    address = req.body.address;
+    par = req.body.par;
     con.getdata(query.checkClient,function(result){
         console.log("Pelanggan",result);
+    });
+})
+app.get('/checkclientexist/:par',function(req,res){
+    par = req.params.par;
+    con.getdata(query.checkClient(par),function(result){
+        console.log("Pelanggan",result);
+        res.send(result);
     });
 })
 app.listen(process.env.PORT || 1946);
