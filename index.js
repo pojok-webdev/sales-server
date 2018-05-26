@@ -62,4 +62,11 @@ console.log("Query invoked",query.confirmOtp(otp));
         res.send(result);
     })
 })
+app.post('/checkclient',function(req,res){
+    clientname = req.body.clientname;
+    address = req.body.address;
+    con.getdata(query.checkClient,function(result){
+        console.log("Pelanggan",result);
+    });
+})
 app.listen(process.env.PORT || 1946);

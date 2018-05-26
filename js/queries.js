@@ -12,9 +12,17 @@ var visits = 'select createuser sales,clientname,address from visits ',
         sql+= '("'+clientname+'","'+address+'","'+phone+'","'+latitude+'","'+longitude+'","'+otp+'","'+createuser+'")';
         return sql;
     }
+    checkClient = data=>{
+        sql = 'select a.id,a.name,a.address,b.username sales from clients a ';
+        sql+= 'left outer join users b on b.id=a.sale_id ';
+        sql+= 'where a.name like "%'+data+'%"';
+        sql+= 'or a.address like "'+data+'"';
+        return sql;
+    }
 module.exports = {
     visits: visits,
     checkOtp: checkOtp,
     confirmOtp: confirmOtp,
-    saveRequest:saveRequest
+    saveRequest:saveRequest,
+    checkClient: checkClient
 }
