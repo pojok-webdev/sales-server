@@ -76,12 +76,18 @@ app.get('/checkclientexist/:par',function(req,res){
         res.send(result);
     });
 })
-app.post('/savedevice',function(req,res){
+app.post('/savemobiledevice',function(req,res){
     imei = req.body.imei;
     user = req.body.user;
     email = req.body.email;
     con.getdata(query.saveMobileDevice(imei,user,email),function(result){
         console.log("post data",req.body);
+        res.send(result);
+    })
+})
+app.get('/getmobiledevice/:imei',function(req,res){
+    con.getdata(query.getMobileDevice(req.param.imei),function(result){
+        console.log("Result",result);
         res.send(result);
     })
 })

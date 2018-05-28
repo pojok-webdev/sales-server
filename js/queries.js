@@ -22,6 +22,11 @@ var visits = 'select createuser sales,clientname,address from visits ',
         sql+= 'email="'+email+'"'
         return sql;
     }
+    getMobileDevice = (imei)=>{
+        sql = 'select imei,user,email from mobiledevices ';
+        sql+= 'where imei="'+imei+'"';
+        return sql;
+    }
     checkClient = data=>{
         sql = 'select a.id,a.name,a.address,b.username sales from clients a ';
         sql+= 'left outer join users b on b.id=a.sale_id ';
@@ -35,5 +40,6 @@ module.exports = {
     confirmOtp: confirmOtp,
     saveRequest:saveRequest,
     checkClient: checkClient,
-    saveMobileDevice: saveMobileDevice
+    saveMobileDevice: saveMobileDevice,
+    getMobileDevice: getMobileDevice
 }
