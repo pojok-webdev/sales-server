@@ -80,7 +80,9 @@ app.post('/savedevice',function(req,res){
     imei = req.body.imei;
     user = req.body.user;
     email = req.body.email;
-console.log("post data",req.body);
-    res.send(req.body)
+    con.getdata(query.saveMobileDevice(imei,user,email),function(result){
+        console.log("post data",req.body);
+        res.send(result);
+    })
 })
 app.listen(process.env.PORT || 1946);

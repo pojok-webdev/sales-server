@@ -12,6 +12,16 @@ var visits = 'select createuser sales,clientname,address from visits ',
         sql+= '("'+clientname+'","'+address+'","'+phone+'","'+latitude+'","'+longitude+'","'+otp+'","'+createuser+'")';
         return sql;
     }
+    saveMobileDevice = (imei,user,email)=>{
+        sql = 'insert into mobiledevices ';
+        sql+= '(imei,user,email)';
+        sql+= 'values ';
+        sql+= '("'+imei+'","'+user+'","'+email+'")';
+        sql+= 'on duplicate key update ';
+        sql+= 'user="'+user+'"';
+        sql+= 'email="'+email+'"'
+        return sql;
+    }
     checkClient = data=>{
         sql = 'select a.id,a.name,a.address,b.username sales from clients a ';
         sql+= 'left outer join users b on b.id=a.sale_id ';
@@ -24,5 +34,6 @@ module.exports = {
     checkOtp: checkOtp,
     confirmOtp: confirmOtp,
     saveRequest:saveRequest,
-    checkClient: checkClient
+    checkClient: checkClient,
+    saveMobileDevice: saveMobileDevice
 }
