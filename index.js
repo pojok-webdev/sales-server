@@ -76,4 +76,10 @@ app.get('/checkclientexist/:par',function(req,res){
         res.send(result);
     });
 })
+app.post('/savedevice',function(req,res){
+    imei = req.body.imei;
+    user = req.body.user;
+    email = req.body.email;
+    res.send(req.body)
+})
 app.listen(process.env.PORT || 1946);
