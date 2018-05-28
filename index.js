@@ -66,6 +66,7 @@ app.post('/checkclient',function(req,res){
     par = req.body.par;
     con.getdata(query.checkClient(par),function(result){
         console.log("Pelanggan",result);
+res.send(result);
     });
 })
 app.get('/checkclientexist/:par',function(req,res){
