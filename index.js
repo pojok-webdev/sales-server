@@ -64,7 +64,7 @@ console.log("Query invoked",query.confirmOtp(otp));
 })
 app.post('/checkclient',function(req,res){
     par = req.body.par;
-    con.getdata(query.checkClient,function(result){
+    con.getdata(query.checkClient(par),function(result){
         console.log("Pelanggan",result);
     });
 })
