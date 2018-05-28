@@ -23,7 +23,7 @@ var visits = 'select createuser sales,clientname,address from visits ',
         return sql;
     }
     getMobileDevice = (imei)=>{
-        sql = 'select imei,user,email from mobiledevices ';
+        sql = 'select imei,user username,email from mobiledevices ';
         sql+= 'where imei="'+imei+'"';
         return sql;
     }
