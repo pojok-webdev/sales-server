@@ -17,9 +17,9 @@ var visits = 'select createuser sales,clientname,address from visits ',
         sql+= '(imei,user,email)';
         sql+= 'values ';
         sql+= '("'+imei+'","'+user+'","'+email+'")';
-        //sql+= 'on duplicate key update ';
-        //sql+= 'user="'+user+'",';
-        //sql+= 'email="'+email+'"'
+        sql+= 'on duplicate key update ';
+        sql+= 'user="'+user+'",';
+        sql+= 'email="'+email+'"'
         return sql;
     }
     checkClient = data=>{
