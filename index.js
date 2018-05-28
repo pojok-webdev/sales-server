@@ -86,8 +86,8 @@ app.post('/savemobiledevice',function(req,res){
     })
 })
 app.get('/getmobiledevice/:imei',function(req,res){
-    console.log("Query",query.getMobileDevice(req.param.imei));
-    con.getdata(query.getMobileDevice(req.param.imei),function(result){
+    console.log("Query",query.getMobileDevice(req.params.imei));
+    con.getdata(query.getMobileDevice(req.params.imei),function(result){
         console.log("Result",result);
         res.send(result);
     })
