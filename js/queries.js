@@ -1,5 +1,6 @@
 var visits = imei=>{
-        return 'select createuser sales,clientname,address,createdate from visits where imei="'+imei+'"'
+        sql = 'select createuser sales,clientname,address,createdate from visits where imei="'+imei+'" order by createdate desc'
+        return sql
     },
     checkOtp = (otp)=>{
         return 'select * from visits where otp="'+otp+'"'
