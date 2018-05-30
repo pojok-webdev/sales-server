@@ -1,4 +1,6 @@
-var visits = 'select createuser sales,clientname,address from visits ',
+var visits = imei=>{
+        return 'select createuser sales,clientname,address from visits where imei="'+imei+'"'
+    },
     checkOtp = (otp)=>{
         return 'select * from visits where otp="'+otp+'"'
     };

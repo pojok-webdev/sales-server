@@ -10,10 +10,11 @@ app.use(function(req,res,next){
     res.header("Access-Control-Allow-Headers","Origin, X-Requested-With, Content-Type, Accept");
     next();
 });
-app.get('/visits',function(req,res){
+app.get('/visits/:imei',function(req,res){
     res.header("Access-Control-Allow-Origin", "*");
     console.log("Visits invoked");
-    con.getdata(query.visits,function(result){
+    imei = req.params.imei;
+    con.getdata(query.visits(imei),function(result){
         console.log('Result', result);
         res.send(result);
     })
