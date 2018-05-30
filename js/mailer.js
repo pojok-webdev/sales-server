@@ -17,7 +17,7 @@ mailOptions = {
 };
 sendmail = function(mail,callback){
     mailOptions.text = mail.msg;
-    mailOptions.to = mail.to+'@sms.padinet.com';
+    mailOptions.to = mail.to+'@playsms.padinet.com';
     process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
     transporter.sendMail(mailOptions,function(err,res){
         if(err){
