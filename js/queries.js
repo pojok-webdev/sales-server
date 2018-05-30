@@ -5,11 +5,11 @@ var visits = 'select createuser sales,clientname,address from visits ',
     confirmOtp = (otp)=>{
         return 'update visits set otpconfirmed="1" where otp="'+otp+'" and otpconfirmed="0" '
     }
-    saveRequest = (clientname,address,phone,latitude, longitude,otp,createuser)=>{
+    saveRequest = (clientname,address,phone,latitude, longitude,otp,createuser,imei)=>{
         sql = 'insert into visits ';
-        sql+= '(clientname,address,phone,latitude, longitude,otp,createuser)';
+        sql+= '(clientname,address,phone,latitude, longitude,otp,createuser,imei)';
         sql+= 'values ';
-        sql+= '("'+clientname+'","'+address+'","'+phone+'","'+latitude+'","'+longitude+'","'+otp+'","'+createuser+'")';
+        sql+= '("'+clientname+'","'+address+'","'+phone+'","'+latitude+'","'+longitude+'","'+otp+'","'+createuser+'","'+imei+'")';
         return sql;
     }
     saveMobileDevice = (imei,user,email)=>{

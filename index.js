@@ -34,8 +34,9 @@ app.post('/reqotp',function(req,res){
     latitude = req.body.latitude;
     longitude = req.body.longitude;
     sender = req.body.sender;
+    imei = req.body.imei;
     _otp = otp.get();
-    con.getdata(query.saveRequest(clientname,address,phone,latitude,longitude,_otp,sender),function(result){
+    con.getdata(query.saveRequest(clientname,address,phone,latitude,longitude,_otp,sender,imei),function(result){
         console.log("Save Result",result);
         mail = {
             to : phone,
