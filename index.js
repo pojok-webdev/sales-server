@@ -14,7 +14,7 @@ app.get('/visits/:imei',function(req,res){
     res.header("Access-Control-Allow-Origin", "*");
     console.log("Visits invoked");
     imei = req.params.imei;
-    console.log("Query",query.visits(imei));
+    console.log("Visits Query",query.visits(imei));
     con.getdata(query.visits(imei),function(result){
         console.log('Result', result);
         res.send(result);
