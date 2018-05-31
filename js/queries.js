@@ -33,7 +33,10 @@ var visits = imei=>{
     checkClient = data=>{
         sql = 'select a.id,a.name,a.address,b.username sales from clients a ';
         sql+= 'left outer join users b on b.id=a.sale_id ';
-        sql+= 'where a.name like "%'+data+'%"';
+        sql+= 'where a.name like "%'+data+'%" ';
+        sql+= 'and a.active="1" ';
+        sql+= 'and a.status="1" ';
+        sql+= 'and a.hide="0" ';
         sql+= 'or a.address like "'+data+'"';
         return sql;
     }
