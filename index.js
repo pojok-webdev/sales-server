@@ -49,6 +49,17 @@ app.post('/reqotp',function(req,res){
         });
     });
 });
+app.get('/testmail/:phone',function(req,res){
+    res.header("Access-Control-Allow-Origin","*");
+    var phone = req.params.phone;
+    mail = {
+        to : phone,
+        msg : "OTP PadiNET : "+phone
+    }
+mailer.sendmail(mail,function(content){
+        res.send("OTP PadiNET : ");
+    });
+})
 app.get('/checkotp/:otp',function(req,res){
     res.header("Access-Control-Allow-Origin","*");
     var otp = req.params.otp;
